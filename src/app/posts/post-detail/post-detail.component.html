@@ -1,6 +1,14 @@
-<div *ngIf="post">
-  <h3>{{post.title}}</h3>
-  <p>posted by {{post.author}} &bull; {{post.published.toDate() | date: 'fullDate'}}</p>
-  <p>{{post.content}}</p>
-</div>
-
+<mat-card *ngIf="post">
+  <img src="{{post.image}}" alt="{{post.title}}">
+  <p><small>Posted by {{post.author}} &bull; on {{post.published.toDate() | date: 'fullDate'}}</small></p>
+      <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
+        <button mat-icon-button (click)="editing=true">
+          edit
+        </button>
+      </mat-card-actions>
+      <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
+        <button mat-icon-button (click)="delete()">
+          delete
+        </button>
+      </mat-card-actions>
+</mat-card>
