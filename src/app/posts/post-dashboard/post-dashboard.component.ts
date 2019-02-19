@@ -54,14 +54,10 @@ export class PostDashboardComponent implements OnInit {
       this.uploadPercent = task.percentageChanges();
       // get notified when the download URL is available
       this.downloadURL = fileRef.getDownloadURL() // And this one to actually grab the URL from the Ref
-      fileRef.getDownloadURL().subscribe(ref => {
-        console.log('REF', ref)
-        console.log(this.downloadURL);
-        this.downloadURL = ref
-      })
-      // this.uploadPercent = task.percentageChanges()
-      // console.log('image Uploaded');
-       this.downloadURL.subscribe(url => (this.image = url))
+      
+      this.downloadURL.subscribe(url => (console.log(url), this.image = url)) 
+       
     }
   }
+   
 }

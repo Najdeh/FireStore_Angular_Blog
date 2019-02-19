@@ -13,7 +13,7 @@
           <mat-progress-bar mode="determinate" value="{{uploadPercent | async }}"></mat-progress-bar>
         </div>
         <div [hidden]='!image'>
-          <img [src]="image || '//:0'" alt="img">
+          <img [src]="image || '//:0 | async'" alt="img">
         </div>
 
       </div>
