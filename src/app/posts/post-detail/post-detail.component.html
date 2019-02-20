@@ -1,6 +1,26 @@
-<mat-card *ngIf="post">
-  <img src="{{post.image}}" alt="{{post.title}}">
-  <p><small>Posted by {{post.author}} &bull; on {{post.published.toDate() | date: 'fullDate'}}</small></p>
+<ng-container *ngIf="post">
+  <div [hidden]="!editing">
+
+    <mat-card>
+      <h2>Update Post</h2>
+      <mat-form-field>
+        <input matInput placeholder="Post Title" [(ngModel)]="post.title">
+      </mat-form-field><br>
+      <mat-form-field>
+        <textarea rows="10" matInput placeholder="Post Content" [(ngModel)]="post.content"></textarea>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="accent" (click)="updatePost()" [disabled]="!post.title || !post.content">Save</button>
+      <button mat-button (click)="editing=false" [disabled]="!post.title || !post.content">Cancel</button>
+    </mat-card>
+
+  </div>
+  <div [hidden]="editing">
+    <mat-card>
+      <img src="{{post.image}}" alt="{{post.title}}">
+      <p><small>Posted by {{post.author}} &bull; on {{post.published.toDate() | date: 'fullDate'}}</small></p>
+      <h2>{{post.title}}</h2>
+      <p>{{post.content}}</p>
       <mat-card-actions align="end" *ngIf="authService.currentUserId === post.authorId">
         <button mat-icon-button (click)="editing=true">
           edit
@@ -11,4 +31,6 @@
           delete
         </button>
       </mat-card-actions>
-</mat-card>
+    </mat-card>
+  </div>
+</ng-container>

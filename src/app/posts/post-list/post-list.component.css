@@ -14,3 +14,8 @@ mat-card{
 img{
     width: 100%
 }
+
+mat-card-content:focus{
+    outline: none;
+    border: 0;
+}

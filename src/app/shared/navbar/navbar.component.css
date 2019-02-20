@@ -10,3 +10,7 @@ span:focus {
 span {
     cursor: pointer;
 }
+
+.mat-raised-button{
+    margin-right: 5%;
+}
