@@ -18,18 +18,25 @@
   <div [hidden]="editing">
     <mat-card>
       <img src="{{post.image}}" alt="{{post.title}}">
-      <p><small>Posted by {{post.author}} &bull; on {{post.published.toDate() | date: 'fullDate'}}</small></p>
       <h2>{{post.title}}</h2>
       <p>{{post.content}}</p>
+      <p><small>Posted by {{post.author}} &bull; on {{post.published.toDate() | date: 'fullDate'}}</small></p>
+
       <mat-card-actions align="end" *ngIf="authService.currentUserId === post.authorId">
-        <button mat-icon-button (click)="editing=true">
+        <i class="material-icons" (click)="editing=true">
           edit
-        </button>
+        </i>
+        <!-- <button mat-icon-button (click)="editing=true">
+          edit
+        </button> -->
       </mat-card-actions>
       <mat-card-actions align="end" *ngIf="authService.currentUserId === post.authorId">
-        <button mat-icon-button (click)="delete()">
+        <!-- <button mat-icon-button (click)="delete()">
           delete
-        </button>
+        </button> -->
+        <i class="material-icons" (click)="delete()">
+          delete
+        </i>
       </mat-card-actions>
     </mat-card>
   </div>

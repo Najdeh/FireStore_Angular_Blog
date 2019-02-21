@@ -4,6 +4,7 @@ import { PostService } from '../post.service';
 import { Observable } from "rxjs";
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-dashboard',
@@ -20,7 +21,7 @@ export class PostDashboardComponent implements OnInit {
 
   uploadPercent: Observable<number>
   downloadURL: Observable<string>
-  constructor(private auth: AuthService, private postService: PostService, private storage: AngularFireStorage) { }
+  constructor(private auth: AuthService, private postService: PostService, private storage: AngularFireStorage, private router: Router) { }
 
   ngOnInit() {
   }
@@ -39,7 +40,7 @@ export class PostDashboardComponent implements OnInit {
     this.content = ''
     this.buttonText = 'Saving'
     setTimeout(() => { this.buttonText = 'Create Post' }, 800)
-
+    this.router.navigate(['/blog'])
   }
 
   uploadImage(event) {
@@ -62,5 +63,5 @@ export class PostDashboardComponent implements OnInit {
 
     }
   }
-   
+
 }

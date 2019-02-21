@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule  } from '@angular/fire/firestore';
-import { AngularFireStorageModule  } from '@angular/fire/storage';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FirestoreSettingsToken } from '@angular/fire/firestore';
 
