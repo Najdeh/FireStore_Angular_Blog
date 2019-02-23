@@ -9,6 +9,12 @@
       <mat-form-field>
         <textarea rows="10" matInput placeholder="Post Content" [(ngModel)]="post.content"></textarea>
       </mat-form-field>
+      <mat-form-field>
+        <textarea rows="10" matInput placeholder="Post Content" [(ngModel)]="post.content2"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea rows="10" matInput placeholder="Post Content" [(ngModel)]="post.content3"></textarea>
+      </mat-form-field>
       <br>
       <button mat-raised-button color="accent" (click)="updatePost()" [disabled]="!post.title || !post.content">Save</button>
       <button mat-button (click)="editing=false" [disabled]="!post.title || !post.content">Cancel</button>
@@ -17,27 +23,32 @@
   </div>
   <div [hidden]="editing">
     <mat-card>
+        <h2 class="grey"><strong>{{post.title | uppercase}}</strong></h2>
       <img src="{{post.image}}" alt="{{post.title}}">
-      <h2>{{post.title}}</h2>
+      <br>
+      <br>
       <p>{{post.content}}</p>
-      <p><small>Posted by {{post.author}} &bull; on {{post.published.toDate() | date: 'fullDate'}}</small></p>
+      <p>{{post.content2}}</p>
+      <p>{{post.content3}}</p>
+      <br>
+      <p class="right"><small>{{post.published.toDate() | date: 'fullDate'}}</small></p>
 
       <mat-card-actions align="end" *ngIf="authService.currentUserId === post.authorId">
         <i class="material-icons" (click)="editing=true">
           edit
         </i>
+        
+        <i class="material-icons" (click)="delete()">
+            delete
+          </i>
         <!-- <button mat-icon-button (click)="editing=true">
           edit
         </button> -->
       </mat-card-actions>
-      <mat-card-actions align="end" *ngIf="authService.currentUserId === post.authorId">
-        <!-- <button mat-icon-button (click)="delete()">
-          delete
-        </button> -->
-        <i class="material-icons" (click)="delete()">
-          delete
-        </i>
-      </mat-card-actions>
+
+       <i class="material-icons arrow" (click)="navBack()">
+    arrow_back
+      </i>
     </mat-card>
-  </div>
+ </div>
 </ng-container>

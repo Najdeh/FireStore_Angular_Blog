@@ -1,3 +1,15 @@
+<div *ngIf="auth.afAuth.authState | async as user">
+  <app-navbar></app-navbar>
+</div>
+
 <div>
-    {{ (item | async)?.name }}
-  </div>
+  <h1 class="center">
+    <strong> 
+      <span class="grey">EVENTS </span>
+      <span class="gold">IDEAS</span></strong>
+  </h1>
+</div>
+
+
+
+<router-outlet></router-outlet>

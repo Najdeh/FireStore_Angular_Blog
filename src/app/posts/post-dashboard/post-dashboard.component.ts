@@ -16,6 +16,8 @@ export class PostDashboardComponent implements OnInit {
   title: string
   image: string
   content: string
+  content2: string
+  content3: string
 
   buttonText: string = 'Create Post'
 
@@ -31,6 +33,8 @@ export class PostDashboardComponent implements OnInit {
       author: this.auth.authState.displayName || this.auth.authState.email,
       authorId: this.auth.currentUserId,
       content: this.content,
+      content2: this.content2,
+      content3: this.content3,
       image: this.image || null,
       published: new Date(),
       title: this.title

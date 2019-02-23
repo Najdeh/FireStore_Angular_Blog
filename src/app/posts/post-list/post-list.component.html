@@ -1,14 +1,15 @@
 <section>
-    <mat-card *ngFor="let post of posts | async">
-      <mat-card-content routerLink="{{post.id}}">
+    <mat-card *ngFor="let post of posts | async" >
+      <mat-card-content>
+        <h2 class="grey"><strong>{{post.title | uppercase}}</strong></h2>
         <img src="{{post.image}}" alt="{{post.title}}">
-        <h2>{{post.title}}</h2>
-        <p><small>Posted by {{post.author}} &bull; on {{post.published.toDate() | date: 'fullDate'}}</small></p>
+        <p>{{post.content}}</p>
+        <button routerLink="{{post.id}}" class="clickable"><strong> READ MORE</strong>
+         </button>
+         <br>
+        
+        <p class="right"><small>{{post.published.toDate() | date: 'fullDate'}}</small></p>
+        <hr>
       </mat-card-content>
-      <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
-        <button mat-icon-button (click)="delete(post.id)">
-          delete
-        </button>
-      </mat-card-actions>
     </mat-card>
   </section>

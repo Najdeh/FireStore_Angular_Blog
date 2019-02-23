@@ -1,6 +1,11 @@
+section{
+    margin: auto;
+    max-width: 95%;
+}
 mat-card{
-    margin: 10px 0;
+    margin: 20px auto;
     max-width: 700px;
+    box-shadow: none !important;
 }
 img{
     width: 100%
@@ -8,4 +13,30 @@ img{
 
 mat-form-field{
     width: 100%
+}
+h2{
+    font-size: 26px;
+}
+p{
+    color: #666666;
+    text-align: justify;
+    letter-spacing: 0.5px;
+}
+.grey{
+    color: #666666;
+}
+i{
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.arrow{
+    font-size: 40px;
+    font: bold;
+    margin-left: -5px;
+    color: #666666;
+}
+
+.right{
+    text-align: right;
 }

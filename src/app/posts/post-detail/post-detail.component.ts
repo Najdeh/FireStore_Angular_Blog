@@ -33,7 +33,9 @@ export class PostDetailComponent implements OnInit {
   updatePost() {
     const formData = {
       title: this.post.title,
-      content: this.post.content
+      content: this.post.content,
+      content2: this.post.content2,
+      content3: this.post.content3
     };
     const id = this.route.snapshot.paramMap.get("id");
     this.postService.update(id, formData)
@@ -43,6 +45,10 @@ export class PostDetailComponent implements OnInit {
   delete() {
     const id = this.route.snapshot.paramMap.get("id");
     this.postService.delete(id);
+    this.navBack()
+  }
+
+  navBack() {
     this.router.navigate(["/blog"]);
   }
 }

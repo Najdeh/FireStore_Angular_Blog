@@ -15,12 +15,12 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { PostsModule } from './posts/posts.module';
 import { Routes, RouterModule } from '@angular/router';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 const routes: Routes = [
+  { path: 'loginAsBala', component: NavbarComponent },
   { path: '', redirectTo: '/blog', pathMatch: 'full' },
   { path: '', loadChildren: './posts/posts.module#PostsModule' },
-
-
 ]
 @NgModule({
   declarations: [

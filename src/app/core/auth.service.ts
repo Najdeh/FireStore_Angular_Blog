@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 //import { AngularFireAuth } from "angularfire2/auth";
 import * as firebase from "firebase/app";
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
   authState: any = null
 
-  constructor(public afAuth: AngularFireAuth) { 
+  constructor(public afAuth: AngularFireAuth, private router: Router) { 
     this.afAuth.authState.subscribe(data => this.authState = data)
   }
 
@@ -21,7 +22,7 @@ export class AuthService {
 
 
   login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(()=>  this.router.navigate(["/blog"]))
   }
 
   logout() {

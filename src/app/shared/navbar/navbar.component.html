@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span routerLink="/blog">Balazs Molnar</span>
+    <span routerLink="/blog">BLOG</span>
     <span class="spacer"></span>
     <div *ngIf="auth.afAuth.authState | async as user; else showLogin">
       <button mat-raised-button color="accent" routerLink="/dashboard">New Post</button>
