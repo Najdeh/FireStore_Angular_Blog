@@ -18,7 +18,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 
 const routes: Routes = [
-  { path: 'loginAsBala', component: NavbarComponent },
+  //{ path: 'loginAsBala', component: NavbarComponent },
   { path: '', redirectTo: '/blog', pathMatch: 'full' },
   { path: '', loadChildren: './posts/posts.module#PostsModule' },
 ]
